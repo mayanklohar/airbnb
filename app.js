@@ -24,7 +24,7 @@ const sessionOptions={
     secret:"mysupersecretcode",
     resave:false,
     saveUninitialized:true,
-    cookies:{
+    cookie:{
         expires:Date.now()+7*24*60*60*1000,
         maxAge:7*24*60*60*1000,
         httpOnly:true
@@ -181,6 +181,7 @@ app.get("/testListing",  wrapAsync(async (req,res)=>{
 app.use((req,res,next)=>{
     res.locals.success=req.flash("success");
     res.locals.error=req.flash("error");
+    res.locals.currUser=req.user;
     next();
 });
 
