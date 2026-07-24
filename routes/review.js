@@ -7,7 +7,7 @@ const reviews=require('../routes/review.js');
 const listings=require('../routes/listing.js');
 const Listing = require("../models/listing.js");
 const Review = require("../models/review.js");
-const { isLoggedIn, validateReview } = require("../middleware.js");
+const { isLoggedIn, validateReview, isReviewAuthor } = require("../middleware.js");
 
 // const validateReview = (req, res, next) => {
 //     let { error } = reviewSchema.validate(req.body);
@@ -37,7 +37,7 @@ const { isLoggedIn, validateReview } = require("../middleware.js");
         }));
 
         //Delete review route
-        router.delete("/:reviewId", wrapAsync(async (req,res)=>{
+        router.delete("/:reviewId",isReviewAuthor, wrapAsync(async (req,res)=>{
             let {id,reviewId}=req.params;
             await Listing.findByIdAndUpdate(id,{$pull:{reviews:reviewId}});
             await Review.findByIdAndDelete(reviewId);
