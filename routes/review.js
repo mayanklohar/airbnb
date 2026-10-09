@@ -10,17 +10,7 @@ const Review = require("../models/review.js");
 const { isLoggedIn, validateReview, isReviewAuthor } = require("../middleware.js");
 const reviewsController=require("../controllers/reviews.js");
 
-// const validateReview = (req, res, next) => {
-//     let { error } = reviewSchema.validate(req.body);
 
-//     if (error) {
-//         let errMsg = error.details.map(el => el.message).join(",");
-//         throw new ExpressError(400, errMsg);
-//     }
-
-//     next();
-// };
- 
 
 //Reviews
         //post route

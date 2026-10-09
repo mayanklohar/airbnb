@@ -37,38 +37,7 @@ async (req,res)=>{
 });
 };
 
-// module.exports.createListing=
-//      async (req,res,next)=>{
-       
-//         let result=listingSchema.validate(req.body);
-//         console.log(result);
-//         if(result.error){
-//          throw new ExpressError(400,result.error);
-//         }
-//          let url = req.file.path;
-//         let filename = req.file.filename;
-//              const newListing=new Listing(req.body.listing);
-//               newListing.owner = req.user._id;
-//               newListing.image={url,filename};
-//              await newListing.save();
-//              req.flash("success","Successfully made a new listing");
-//              res.redirect("/listings");
-// };
 
-// module.exports.createListing=async (req,res,next)=>{
-
-//     console.log("BODY:", req.body);
-//     console.log("FILE:", req.file);
-//      let url = req.file.path;
-//         let filename = req.file.filename;
-
-//         const newListing=new Listing(req.body.listing);
-//         newListing.owner=req.user._id;
-//         newListing.image={url,filename};
-//         await newListing.save();
-//          req.flash("success","Successfully made a new listing");
-//              res.redirect("/listings");
-// };
 
 module.exports.createListing = async (req, res, next) => {
     console.log("req.body =", req.body);
